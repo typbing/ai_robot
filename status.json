@@ -1,12 +1,12 @@
 {
   "account": {
-    "equity_usdt": 200.6041486146351,
+    "equity_usdt": 200.6081655178913,
     "open_positions": [],
     "realized_pnl_usdt": -0.06191701131761418
   },
   "daily": {
     "consecutive_losses": 1,
-    "daily_net_loss_limit_usdt": -2.006041486146351,
+    "daily_net_loss_limit_usdt": -2.006081655178913,
     "daily_net_pnl_usdt": -1.4669338353332517,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-18",
@@ -216,7 +216,7 @@
     "BTC-USDT-SWAP",
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-18T16:10:57.171757+00:00",
+  "timestamp": "2026-06-18T16:15:16.288898+00:00",
   "trades": [
     {
       "event": "OPEN",

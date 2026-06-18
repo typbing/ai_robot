@@ -1,6 +1,6 @@
 {
   "account": {
-    "equity_usdt": 200.285944909762,
+    "equity_usdt": 200.55476938017222,
     "open_positions": [
       {
         "ai_confidence": 0.0,
@@ -32,42 +32,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-18T21:41:49.314474+00:00"
-    },
-    {
-      "candidate_action": "HOLD",
-      "reject_reason": "ai_rejected",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-18T21:46:58.381676+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-18T21:47:01.254737+00:00"
-    },
-    {
-      "candidate_action": "HOLD",
-      "reject_reason": "ai_rejected",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-18T21:52:10.744828+00:00"
-    },
-    {
-      "candidate_action": "HOLD",
-      "reject_reason": "ai_rejected",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-18T21:52:17.208324+00:00"
-    },
-    {
-      "candidate_action": "HOLD",
-      "reject_reason": "ai_rejected",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-18T21:57:21.531823+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "no_rule_candidate",
@@ -211,6 +175,42 @@
       "reject_reason": "no_rule_candidate",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-18T22:55:21.125210+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "symbol_already_has_open_position",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T23:00:22.604314+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T23:00:23.468142+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "symbol_already_has_open_position",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T23:05:24.409803+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T23:05:25.550821+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "symbol_already_has_open_position",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T23:10:26.892432+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T23:10:27.970035+00:00"
     }
   ],
   "service": {
@@ -228,7 +228,7 @@
     "BTC-USDT-SWAP",
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-18T23:00:16.290630+00:00",
+  "timestamp": "2026-06-18T23:15:16.263541+00:00",
   "trades": [
     {
       "event": "OPEN",

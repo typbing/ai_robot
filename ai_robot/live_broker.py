@@ -10,7 +10,7 @@ from ai_robot.config import BotConfig
 from ai_robot.logging_utils import append_jsonl, utc_now_iso, write_json
 from ai_robot.okx_private import OKXPrivateClient
 from ai_robot.okx_public import OKXPublicClient
-from ai_robot.risk_limits import daily_loss_limit_usdt
+from ai_robot.risk_limits import daily_loss_limit_enabled, daily_loss_limit_usdt
 
 
 LIVE_ENABLE_VALUE = "I_UNDERSTAND_REAL_MONEY_IS_AT_RISK"
@@ -84,6 +84,10 @@ class LiveBroker:
         if current.get("stop_reason") == "daily_net_profit_target_reached":
             current["stop_trading_today"] = False
             current["stop_reason"] = None
+        if not daily_loss_limit_enabled(self.config):
+            if current.get("stop_reason") == "daily_net_loss_limit_reached":
+                current["stop_trading_today"] = False
+                current["stop_reason"] = None
         if self.config.max_consecutive_losses <= 0 and current.get("stop_reason") == "consecutive_losses_limit":
             current["stop_trading_today"] = False
             current["stop_reason"] = None
@@ -138,7 +142,8 @@ class LiveBroker:
             return False, "max_open_positions_reached"
         if symbol and symbol in self.open_symbols():
             return False, "symbol_already_has_open_position"
-        if self.daily["daily_net_pnl_usdt"] <= self.daily_loss_limit_usdt():
+        daily_loss_limit = self.daily_loss_limit_usdt()
+        if daily_loss_limit_enabled(self.config) and self.daily["daily_net_pnl_usdt"] <= daily_loss_limit:
             self.stop_today("daily_net_loss_limit_reached")
             return False, "daily_net_loss_limit_reached"
         if self.config.max_consecutive_losses > 0 and self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
@@ -277,7 +282,8 @@ class LiveBroker:
         else:
             self.daily["losses"] += 1
             self.daily["consecutive_losses"] += 1
-        if self.daily["daily_net_pnl_usdt"] <= self.daily_loss_limit_usdt():
+        daily_loss_limit = self.daily_loss_limit_usdt()
+        if daily_loss_limit_enabled(self.config) and self.daily["daily_net_pnl_usdt"] <= daily_loss_limit:
             self.stop_today("daily_net_loss_limit_reached")
         elif self.config.max_consecutive_losses > 0 and self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
             self.stop_today("consecutive_losses_limit")

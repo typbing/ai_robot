@@ -1,0 +1,13 @@
+{
+  "timestamp": null,
+  "mode": "live",
+  "symbols": ["BTC-USDT-SWAP", "ETH-USDT-SWAP"],
+  "service": {"paper": "unknown", "live": "unknown", "dashboard": "unknown"},
+  "account": {"equity_usdt": 0, "realized_pnl_usdt": 0, "open_positions": []},
+  "daily": {"daily_net_pnl_usdt": 0, "daily_profit_stop_enabled": false, "daily_net_loss_limit_usdt": 0},
+  "trades": [],
+  "signals": [],
+  "rejects": [],
+  "errors": [],
+  "notifications": []
+}

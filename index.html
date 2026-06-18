@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Robot Dashboard</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">OKX BTC/ETH trader</p>
+          <h1>AI Robot Dashboard</h1>
+        </div>
+        <div class="api-box">
+          <label for="apiBase">API</label>
+          <input id="apiBase" type="url" autocomplete="off" />
+          <button id="saveApi" type="button" title="Save API URL">Save</button>
+        </div>
+      </header>
+
+      <section class="status-strip" aria-label="Account summary">
+        <div class="metric">
+          <span>Equity</span>
+          <strong id="equity">--</strong>
+        </div>
+        <div class="metric">
+          <span>Daily PnL</span>
+          <strong id="dailyPnl">--</strong>
+        </div>
+        <div class="metric">
+          <span>Open Positions</span>
+          <strong id="openCount">--</strong>
+        </div>
+        <div class="metric">
+          <span>Services</span>
+          <strong id="paperService">--</strong>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Positions</h2>
+            <span id="updatedAt">--</span>
+          </div>
+          <div id="positions" class="rows"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Daily State</h2>
+          </div>
+          <div id="dailyState" class="kv"></div>
+        </article>
+
+        <article class="panel wide">
+          <div class="panel-head">
+            <h2>Recent Trades</h2>
+          </div>
+          <div id="trades" class="table-wrap"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Recent Rejects</h2>
+          </div>
+          <div id="rejects" class="rows compact"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Errors & Notifications</h2>
+          </div>
+          <div id="events" class="rows compact"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

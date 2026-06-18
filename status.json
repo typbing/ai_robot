@@ -1,12 +1,12 @@
 {
   "account": {
-    "equity_usdt": 202.1407474943876,
+    "equity_usdt": 202.1447941536638,
     "open_positions": [],
     "realized_pnl_usdt": 1.4050168240156375
   },
   "daily": {
     "consecutive_losses": 0,
-    "daily_net_loss_limit_usdt": -2.021407474943876,
+    "daily_net_loss_limit_usdt": -2.021447941536638,
     "daily_net_pnl_usdt": 0.0,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-18",
@@ -209,20 +209,14 @@
   "signals": [],
   "snapshot_policy": {
     "kind": "public_sanitized",
-    "redacted": [
-      "okx_balance",
-      "okx_positions",
-      "order_response",
-      "raw_errors",
-      "notification_responses"
-    ],
+    "redaction": "raw exchange payloads, order responses, error bodies, notification responses, and credentials are excluded",
     "update_interval_minutes": 15
   },
   "symbols": [
     "BTC-USDT-SWAP",
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-18T01:58:48.954625+00:00",
+  "timestamp": "2026-06-18T01:59:15.347644+00:00",
   "trades": [
     {
       "event": "OPEN",

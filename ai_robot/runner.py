@@ -13,14 +13,17 @@ from ai_robot.logging_utils import append_jsonl, ensure_dir, utc_now_iso
 from ai_robot.notifications import BarkNotifier, build_daily_summary, maybe_send_daily_summary
 from ai_robot.okx_public import OKXPublicClient
 from ai_robot.paper_broker import PaperBroker
+from ai_robot.risk_limits import daily_loss_limit_enabled
 from ai_robot.strategy import build_signal, near_funding_window, rule_prefilter
 
 
 def build_account_summary(broker: PaperBroker, config: BotConfig) -> dict[str, Any]:
+    loss_stop_enabled = daily_loss_limit_enabled(config)
     return {
         "equity_usdt": broker.state["equity_usdt"],
         "daily_net_pnl_usdt": broker.daily["daily_net_pnl_usdt"],
-        "daily_loss_limit_usdt": broker.daily_loss_limit_usdt(),
+        "daily_loss_stop_enabled": loss_stop_enabled,
+        "daily_loss_limit_usdt": broker.daily_loss_limit_usdt() if loss_stop_enabled else None,
         "daily_profit_stop_enabled": False,
         "open_positions": len(broker.open_positions),
         "open_symbols": sorted(broker.open_symbols()),
@@ -144,6 +147,10 @@ def run_once(config: BotConfig) -> int:
                     "allow_short": config.allow_short,
                 },
             }
+            loss_stop_enabled = daily_loss_limit_enabled(config)
+            summary["risk_rules"]["daily_loss_stop_enabled"] = loss_stop_enabled
+            if not loss_stop_enabled:
+                summary["risk_rules"]["daily_net_loss_limit_usdt"] = None
             ai = ai_client.decide(summary)
             append_jsonl(config.logs_dir / "snapshots.jsonl", {"summary": summary, "ai": ai})
             signal, reject_reason = build_signal(config, symbol, market, ai, rule_candidate)

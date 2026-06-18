@@ -13,6 +13,7 @@ from ai_robot.live_broker import LiveBroker, LIVE_ENABLE_VALUE
 from ai_robot.logging_utils import append_jsonl, ensure_dir, utc_now_iso, write_json
 from ai_robot.notifications import BarkNotifier
 from ai_robot.okx_public import OKXPublicClient
+from ai_robot.risk_limits import daily_loss_limit_enabled
 from ai_robot.strategy import build_signal, near_funding_window, rule_prefilter
 
 
@@ -27,9 +28,11 @@ def should_push_error(error: Exception) -> bool:
 
 
 def build_account_summary(broker: LiveBroker, config: BotConfig) -> dict[str, Any]:
+    loss_stop_enabled = daily_loss_limit_enabled(config)
     return {
         "daily_net_pnl_usdt": broker.daily["daily_net_pnl_usdt"],
-        "daily_loss_limit_usdt": broker.daily_loss_limit_usdt(),
+        "daily_loss_stop_enabled": loss_stop_enabled,
+        "daily_loss_limit_usdt": broker.daily_loss_limit_usdt() if loss_stop_enabled else None,
         "daily_profit_stop_enabled": False,
         "open_positions": len(broker.open_positions),
         "open_symbols": sorted(broker.open_symbols()),
@@ -141,6 +144,10 @@ def run_once(config: BotConfig, check_exits: bool = True, scan_entries: bool = T
                     "allow_short": config.allow_short,
                 },
             }
+            loss_stop_enabled = daily_loss_limit_enabled(config)
+            summary["risk_rules"]["daily_loss_stop_enabled"] = loss_stop_enabled
+            if not loss_stop_enabled:
+                summary["risk_rules"]["daily_net_loss_limit_usdt"] = None
             try:
                 ai = ai_client.decide(summary)
             except Exception as exc:

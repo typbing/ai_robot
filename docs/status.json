@@ -1,0 +1,262 @@
+{
+  "account": {
+    "equity_usdt": 200.6041486146351,
+    "open_positions": [],
+    "realized_pnl_usdt": -0.06191701131761418
+  },
+  "daily": {
+    "consecutive_losses": 1,
+    "daily_net_loss_limit_usdt": -2.006041486146351,
+    "daily_net_pnl_usdt": -1.4669338353332517,
+    "daily_profit_stop_enabled": false,
+    "date": "2026-06-18",
+    "losses": 1,
+    "stop_reason": null,
+    "stop_trading_today": false,
+    "trades_count": 1,
+    "wins": 0
+  },
+  "errors": [],
+  "mode": "live",
+  "notifications": [],
+  "rejects": [
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:01:28.680348+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:01:37.080154+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:06:40.875970+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:06:45.014254+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:11:49.733668+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:11:52.963682+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:16:58.602195+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:17:01.474340+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:22:10.563391+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:22:13.602120+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:27:18.725494+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:27:23.020414+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:32:25.018207+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:32:29.369737+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:37:38.370198+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:37:39.215843+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:42:41.316678+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:42:42.484378+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:47:48.563513+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:47:49.696169+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:52:53.192406+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:52:54.134497+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T15:57:57.537772+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T15:57:58.668097+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T16:03:00.924540+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T16:03:03.011200+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T16:06:09.881937+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T16:06:11.003213+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-18T16:10:40.527626+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T16:10:42.408167+00:00"
+    }
+  ],
+  "service": {
+    "dashboard": "active",
+    "live": "active",
+    "paper": "inactive"
+  },
+  "signals": [],
+  "snapshot_policy": {
+    "kind": "public_sanitized",
+    "redaction": "raw exchange payloads, order responses, error bodies, notification responses, and credentials are excluded",
+    "update_interval_minutes": 15
+  },
+  "symbols": [
+    "BTC-USDT-SWAP",
+    "ETH-USDT-SWAP"
+  ],
+  "timestamp": "2026-06-18T16:10:57.171757+00:00",
+  "trades": [
+    {
+      "event": "OPEN",
+      "exit_reason": null,
+      "net_pnl_usdt": 0.0,
+      "notional_usdt": 200.0,
+      "price": 1744.53,
+      "side": "SHORT",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-17T21:40:02.109652+00:00"
+    },
+    {
+      "event": "CLOSE",
+      "exit_reason": "take_profit",
+      "net_pnl_usdt": 1.4050168240156375,
+      "notional_usdt": 0.0,
+      "price": 1730.53,
+      "side": "BUY",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-17T22:05:20.501974+00:00"
+    },
+    {
+      "event": "OPEN",
+      "exit_reason": null,
+      "net_pnl_usdt": 0.0,
+      "notional_usdt": 200.0,
+      "price": 1731.74,
+      "side": "SHORT",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T14:30:38.153048+00:00"
+    },
+    {
+      "event": "CLOSE",
+      "exit_reason": "stop_loss",
+      "net_pnl_usdt": -1.4669338353332517,
+      "notional_usdt": 0.0,
+      "price": 1742.71,
+      "side": "BUY",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-18T14:40:50.805507+00:00"
+    }
+  ]
+}

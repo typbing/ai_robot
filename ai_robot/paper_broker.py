@@ -64,6 +64,9 @@ class PaperBroker:
         if current.get("stop_reason") == "daily_net_profit_target_reached":
             current["stop_trading_today"] = False
             current["stop_reason"] = None
+        if self.config.max_consecutive_losses <= 0 and current.get("stop_reason") == "consecutive_losses_limit":
+            current["stop_trading_today"] = False
+            current["stop_reason"] = None
         current["daily_net_loss_limit_usdt"] = self.daily_loss_limit_usdt()
         current["daily_profit_stop_enabled"] = False
         current.pop("daily_net_profit_target_usdt", None)
@@ -102,7 +105,7 @@ class PaperBroker:
         if self.daily["daily_net_pnl_usdt"] <= self.daily["daily_net_loss_limit_usdt"]:
             self.stop_today("daily_net_loss_limit_reached")
             return False, "daily_net_loss_limit_reached"
-        if self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
+        if self.config.max_consecutive_losses > 0 and self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
             self.stop_today("consecutive_losses_limit")
             return False, "consecutive_losses_limit"
         return True, None
@@ -207,7 +210,7 @@ class PaperBroker:
         self.daily["daily_profit_stop_enabled"] = False
         if self.daily["daily_net_pnl_usdt"] <= self.daily["daily_net_loss_limit_usdt"]:
             self.stop_today("daily_net_loss_limit_reached")
-        elif self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
+        elif self.config.max_consecutive_losses > 0 and self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
             self.stop_today("consecutive_losses_limit")
 
         event = {

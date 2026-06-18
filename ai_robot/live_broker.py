@@ -84,6 +84,9 @@ class LiveBroker:
         if current.get("stop_reason") == "daily_net_profit_target_reached":
             current["stop_trading_today"] = False
             current["stop_reason"] = None
+        if self.config.max_consecutive_losses <= 0 and current.get("stop_reason") == "consecutive_losses_limit":
+            current["stop_trading_today"] = False
+            current["stop_reason"] = None
         return current
 
     def account_equity_usdt(self) -> float:
@@ -138,7 +141,7 @@ class LiveBroker:
         if self.daily["daily_net_pnl_usdt"] <= self.daily_loss_limit_usdt():
             self.stop_today("daily_net_loss_limit_reached")
             return False, "daily_net_loss_limit_reached"
-        if self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
+        if self.config.max_consecutive_losses > 0 and self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
             self.stop_today("consecutive_losses_limit")
             return False, "consecutive_losses_limit"
         return True, None
@@ -276,7 +279,7 @@ class LiveBroker:
             self.daily["consecutive_losses"] += 1
         if self.daily["daily_net_pnl_usdt"] <= self.daily_loss_limit_usdt():
             self.stop_today("daily_net_loss_limit_reached")
-        elif self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
+        elif self.config.max_consecutive_losses > 0 and self.daily["consecutive_losses"] >= self.config.max_consecutive_losses:
             self.stop_today("consecutive_losses_limit")
 
     def record_exchange_closed(self, trade_id: str, price: float) -> dict[str, Any]:

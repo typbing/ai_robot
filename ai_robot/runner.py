@@ -146,7 +146,7 @@ def run_once(config: BotConfig) -> int:
             }
             ai = ai_client.decide(summary)
             append_jsonl(config.logs_dir / "snapshots.jsonl", {"summary": summary, "ai": ai})
-            signal, reject_reason = build_signal(config, symbol, market, ai)
+            signal, reject_reason = build_signal(config, symbol, market, ai, rule_candidate)
             if signal is None:
                 reject(
                     config,

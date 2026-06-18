@@ -39,7 +39,7 @@ def build_account_summary(broker: LiveBroker, config: BotConfig) -> dict[str, An
     }
 
 
-def run_once(config: BotConfig) -> int:
+def run_once(config: BotConfig, check_exits: bool = True, scan_entries: bool = True) -> int:
     if config.mode != "live":
         raise RuntimeError("Live runner requires mode=live config.")
 
@@ -50,22 +50,28 @@ def run_once(config: BotConfig) -> int:
     notifier = BarkNotifier(config)
 
     mark_prices: dict[str, float] = {}
-    for symbol in config.symbols:
-        try:
-            mark_prices[symbol] = okx.mark_price(symbol)
-        except Exception as exc:
-            reject(config, {"symbol": symbol, "decision": "REJECT", "reject_reason": "mark_price_error", "error": str(exc)})
-            if should_push_error(exc):
-                notifier.send_error(f"live_mark_price_error:{symbol}", str(exc))
+    if check_exits or scan_entries:
+        for symbol in config.symbols:
+            try:
+                mark_prices[symbol] = okx.mark_price(symbol)
+            except Exception as exc:
+                reject(config, {"symbol": symbol, "decision": "REJECT", "reject_reason": "mark_price_error", "error": str(exc)})
+                if should_push_error(exc):
+                    notifier.send_error(f"live_mark_price_error:{symbol}", str(exc))
 
-    close_events = broker.maybe_close(mark_prices)
-    for event in close_events:
-        notifier.send(
-            "AI Robot live close",
-            f"{event['symbol']} {event['side']} {event['exit_reason']} est_net={event['estimated_net_pnl_usdt']:+.4f} USDT",
-            level="timeSensitive",
-        )
-        print(f"Closed live position: {event['symbol']} {event['exit_reason']} est_net={event['estimated_net_pnl_usdt']:.4f}")
+    if check_exits:
+        close_events = broker.maybe_close(mark_prices)
+        for event in close_events:
+            notifier.send(
+                "AI Robot live close",
+                f"{event['symbol']} {event['side']} {event['exit_reason']} est_net={event['estimated_net_pnl_usdt']:+.4f} USDT",
+                level="timeSensitive",
+            )
+            print(f"Closed live position: {event['symbol']} {event['exit_reason']} est_net={event['estimated_net_pnl_usdt']:.4f}")
+
+    if not scan_entries:
+        print("Skipped live entry scan: waiting for next entry interval.")
+        return 0
 
     can_open, reason = broker.can_open()
     if not can_open:
@@ -153,7 +159,7 @@ def run_once(config: BotConfig) -> int:
                     notifier.send_error(f"live_ai_decision_error:{symbol}", str(exc))
                 continue
             append_jsonl(config.logs_dir / "live_snapshots.jsonl", {"summary": summary, "ai": ai})
-            signal, signal_reason = build_signal(config, symbol, market, ai)
+            signal, signal_reason = build_signal(config, symbol, market, ai, rule_candidate)
             if signal is None:
                 reject(
                     config,
@@ -253,17 +259,27 @@ def check_credentials(config: BotConfig) -> int:
 
 def loop(config: BotConfig) -> int:
     notifier = BarkNotifier(config)
+    last_exit_check = 0.0
+    last_entry_scan = 0.0
     while True:
-        started = datetime.now(timezone.utc).isoformat()
-        print(f"[{started}] live scan")
+        now = time.monotonic()
+        check_exits = now - last_exit_check >= config.local_exit_check_interval_seconds
+        scan_entries = now - last_entry_scan >= config.scan_interval_seconds
         try:
-            run_once(config)
+            if check_exits or scan_entries:
+                started = datetime.now(timezone.utc).isoformat()
+                print(f"[{started}] live loop check_exits={check_exits} scan_entries={scan_entries}")
+                run_once(config, check_exits=check_exits, scan_entries=scan_entries)
+                if check_exits:
+                    last_exit_check = now
+                if scan_entries:
+                    last_entry_scan = now
         except Exception as exc:
             append_jsonl(config.logs_dir / "live_errors.jsonl", {"timestamp": utc_now_iso(), "error": str(exc)})
             if should_push_error(exc):
                 notifier.send_error("live_loop", str(exc))
             print(f"Live scan error: {exc}", file=sys.stderr)
-        time.sleep(config.scan_interval_seconds)
+        time.sleep(min(30, config.scan_interval_seconds, config.local_exit_check_interval_seconds))
 
 
 def main(argv: list[str] | None = None) -> int:

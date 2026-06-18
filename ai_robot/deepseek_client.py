@@ -13,10 +13,12 @@ from ai_robot.config import DeepSeekConfig
 SYSTEM_PROMPT = """You are a conservative crypto perpetual swap trading risk analyst.
 Return only valid JSON. Do not use markdown.
 The account is small. The robot may trade paper or small live size, so your decision must be conservative and realistic.
-You are a second-pass reviewer. A deterministic rule prefilter has already found a candidate.
-Allow a trade only when that candidate's market structure, volatility, and fee-adjusted reward are acceptable.
+You are a second-pass reviewer. A deterministic rule prefilter has already found one or more strategy options.
+Choose exactly one supplied strategy option when its market structure, volatility, and fee-adjusted reward are acceptable.
+Return HOLD if none of the supplied options is clean enough for a small live account.
 Valid preferred_action values: LONG, SHORT, HOLD.
 Valid market_regime values: bullish_trend, bearish_trend, range, high_volatility, low_quality.
+Valid strategy_mode values: trend_pullback, trend_momentum, range_reversal, none.
 """
 
 
@@ -28,6 +30,7 @@ def fallback_ai_decision(summary: dict[str, Any]) -> dict[str, Any]:
             "symbol": summary["symbol"],
             "market_regime": candidate["market_regime"],
             "preferred_action": candidate["preferred_action"],
+            "strategy_mode": candidate.get("strategy_mode", "trend_pullback"),
             "confidence": 0.71,
             "risk_level": "medium",
             "reason": f"Rule fallback accepted prefiltered candidate. {candidate['reason']}",
@@ -69,6 +72,7 @@ def fallback_ai_decision(summary: dict[str, Any]) -> dict[str, Any]:
         "symbol": summary["symbol"],
         "market_regime": regime,
         "preferred_action": action,
+        "strategy_mode": "none",
         "confidence": confidence,
         "risk_level": "medium" if allow else "high",
         "reason": reason,
@@ -137,6 +141,7 @@ class DeepSeekClient:
                                 "symbol": "string",
                                 "market_regime": "string",
                                 "preferred_action": "LONG|SHORT|HOLD",
+                                "strategy_mode": "trend_pullback|trend_momentum|range_reversal|none",
                                 "confidence": "number from 0 to 1",
                                 "risk_level": "low|medium|high",
                                 "reason": "short string",

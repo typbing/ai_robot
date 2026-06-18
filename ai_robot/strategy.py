@@ -70,41 +70,89 @@ def rule_prefilter(
     up_closes = int(float(market.get("consecutive_up_closes", 0)))
     down_closes = int(float(market.get("consecutive_down_closes", 0)))
     volume = str(market.get("volume_state", "unknown"))
-    action = "HOLD"
-    reason = "No rule candidate."
+    options: list[dict[str, Any]] = []
 
     trend_quality_ok = ema_gap >= config.trend_min_ema_gap_pct and extension <= config.trend_max_extension_pct
+    trend_momentum_ok = ema_gap >= config.trend_min_ema_gap_pct and extension <= config.trend_momentum_max_extension_pct
     range_volume_ok = volume != "high"
     range_long_confirmed = last_change > 0 and down_closes < 3
     range_short_confirmed = last_change < 0 and up_closes < 3
 
     if regime == "bullish_trend" and trend_quality_ok and 42 <= rsi_value <= 64:
-        action = "LONG"
-        reason = "Rule candidate: bullish trend, sufficient EMA separation, controlled extension, and pullback RSI."
-    elif regime == "bearish_trend" and trend_quality_ok and 36 <= rsi_value <= 58:
-        action = "SHORT"
-        reason = "Rule candidate: bearish trend, sufficient EMA separation, controlled extension, and rebound RSI."
-    elif regime == "range" and rsi_value <= config.range_reversal_rsi_low and range_volume_ok and range_long_confirmed:
-        action = "LONG"
-        reason = "Rule candidate: range oversold RSI with close-price rebound confirmation and no high-volume breakdown."
-    elif regime == "range" and rsi_value >= config.range_reversal_rsi_high and range_volume_ok and range_short_confirmed:
-        action = "SHORT"
-        reason = "Rule candidate: range overbought RSI with close-price pullback confirmation and no high-volume breakout."
+        options.append(
+            {
+                "strategy_mode": "trend_pullback",
+                "preferred_action": "LONG",
+                "reason": "Bullish trend with sufficient EMA separation, controlled extension, and pullback RSI.",
+            }
+        )
+    if regime == "bearish_trend" and trend_quality_ok and 36 <= rsi_value <= 58:
+        options.append(
+            {
+                "strategy_mode": "trend_pullback",
+                "preferred_action": "SHORT",
+                "reason": "Bearish trend with sufficient EMA separation, controlled extension, and rebound RSI.",
+            }
+        )
+    if regime == "bullish_trend" and trend_momentum_ok and last_change > 0 and 52 <= rsi_value <= 72:
+        options.append(
+            {
+                "strategy_mode": "trend_momentum",
+                "preferred_action": "LONG",
+                "reason": "Bullish trend momentum continuation with positive close confirmation.",
+            }
+        )
+    if regime == "bearish_trend" and trend_momentum_ok and last_change < 0 and 28 <= rsi_value <= 48:
+        options.append(
+            {
+                "strategy_mode": "trend_momentum",
+                "preferred_action": "SHORT",
+                "reason": "Bearish trend momentum continuation with negative close confirmation.",
+            }
+        )
+    if regime == "range" and rsi_value <= config.range_reversal_rsi_low and range_volume_ok and range_long_confirmed:
+        options.append(
+            {
+                "strategy_mode": "range_reversal",
+                "preferred_action": "LONG",
+                "reason": "Range oversold RSI with close-price rebound confirmation and no high-volume breakdown.",
+            }
+        )
+    if regime == "range" and rsi_value >= config.range_reversal_rsi_high and range_volume_ok and range_short_confirmed:
+        options.append(
+            {
+                "strategy_mode": "range_reversal",
+                "preferred_action": "SHORT",
+                "reason": "Range overbought RSI with close-price pullback confirmation and no high-volume breakout.",
+            }
+        )
 
+    options = [
+        option
+        for option in options
+        if not (
+            (option["preferred_action"] == "LONG" and not config.allow_long)
+            or (option["preferred_action"] == "SHORT" and not config.allow_short)
+        )
+    ]
+    if not options:
+        return None, "no_rule_candidate"
+
+    action = str(options[0]["preferred_action"])
     if action == "LONG" and not config.allow_long:
         return None, "long_not_allowed"
     if action == "SHORT" and not config.allow_short:
         return None, "short_not_allowed"
-    if action == "HOLD":
-        return None, "no_rule_candidate"
 
     return {
         "symbol": symbol,
         "preferred_action": action,
         "market_regime": regime,
-        "reason": reason,
+        "strategy_mode": options[0]["strategy_mode"],
+        "reason": options[0]["reason"],
         "source": "rule_prefilter",
         "trade_shape": shape,
+        "strategy_options": options,
     }, None
 
 
@@ -113,6 +161,7 @@ def build_signal(
     symbol: str,
     market: dict[str, Any],
     ai: dict[str, Any],
+    rule_candidate: dict[str, Any] | None = None,
 ) -> tuple[dict[str, Any] | None, str | None]:
     if config.mode not in {"paper", "live"}:
         return None, "unsupported_mode"
@@ -131,6 +180,26 @@ def build_signal(
         return None, "short_not_allowed"
     if side not in {"LONG", "SHORT"}:
         return None, "hold_action"
+    if rule_candidate is not None:
+        allowed_options = rule_candidate.get("strategy_options", [])
+        if isinstance(allowed_options, list) and allowed_options:
+            strategy_mode = str(ai.get("strategy_mode") or "")
+            if not strategy_mode:
+                matching_modes = [
+                    str(option.get("strategy_mode"))
+                    for option in allowed_options
+                    if isinstance(option, dict) and str(option.get("preferred_action")).upper() == side
+                ]
+                if len(set(matching_modes)) == 1:
+                    strategy_mode = matching_modes[0]
+                    ai["strategy_mode"] = strategy_mode
+            allowed_pairs = {
+                (str(option.get("strategy_mode")), str(option.get("preferred_action")).upper())
+                for option in allowed_options
+                if isinstance(option, dict)
+            }
+            if (strategy_mode, side) not in allowed_pairs:
+                return None, "ai_strategy_not_in_rule_options"
 
     if market["market_regime_rule"] == "high_volatility":
         return None, "high_volatility"
@@ -193,6 +262,7 @@ def build_signal(
         "max_net_loss_usdt": max_net_loss,
         "market_regime": ai.get("market_regime"),
         "rule_market_regime": market.get("market_regime_rule"),
+        "strategy_mode": ai.get("strategy_mode") or (rule_candidate or {}).get("strategy_mode"),
         "ai_confidence": confidence,
         "ai_source": ai.get("source", "unknown"),
         "reason": ai.get("reason", ""),

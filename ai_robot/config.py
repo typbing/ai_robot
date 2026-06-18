@@ -24,6 +24,7 @@ class BotConfig:
     base_timeframe: str
     trend_timeframe: str
     scan_interval_seconds: int
+    local_exit_check_interval_seconds: int
     logs_dir: Path
     starting_balance_usdt: float
     daily_net_loss_limit_usdt: float
@@ -48,6 +49,7 @@ class BotConfig:
     min_trade_atr_pct: float
     trend_min_ema_gap_pct: float
     trend_max_extension_pct: float
+    trend_momentum_max_extension_pct: float
     range_reversal_rsi_low: float
     range_reversal_rsi_high: float
     stale_data_seconds: int
@@ -71,6 +73,9 @@ def load_config(path: str | Path) -> BotConfig:
         base_timeframe=raw["base_timeframe"],
         trend_timeframe=raw["trend_timeframe"],
         scan_interval_seconds=int(raw["scan_interval_seconds"]),
+        local_exit_check_interval_seconds=int(
+            raw.get("local_exit_check_interval_seconds", raw["scan_interval_seconds"])
+        ),
         logs_dir=logs_dir,
         starting_balance_usdt=float(raw["starting_balance_usdt"]),
         daily_net_loss_limit_usdt=float(raw["daily_net_loss_limit_usdt"]),
@@ -97,6 +102,9 @@ def load_config(path: str | Path) -> BotConfig:
         min_trade_atr_pct=float(raw.get("min_trade_atr_pct", 0.0)),
         trend_min_ema_gap_pct=float(raw.get("trend_min_ema_gap_pct", 0.0)),
         trend_max_extension_pct=float(raw.get("trend_max_extension_pct", 1.0)),
+        trend_momentum_max_extension_pct=float(
+            raw.get("trend_momentum_max_extension_pct", raw.get("trend_max_extension_pct", 1.0))
+        ),
         range_reversal_rsi_low=float(raw.get("range_reversal_rsi_low", 35.0)),
         range_reversal_rsi_high=float(raw.get("range_reversal_rsi_high", 65.0)),
         stale_data_seconds=int(raw["stale_data_seconds"]),

@@ -1,6 +1,6 @@
 {
   "account": {
-    "equity_usdt": 204.39845730323685,
+    "equity_usdt": 203.59541693130478,
     "open_positions": [
       {
         "ai_confidence": 0.0,
@@ -43,24 +43,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "max_open_positions_reached",
-      "symbol": null,
-      "timestamp": "2026-06-19T08:21:49.260351+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "max_open_positions_reached",
-      "symbol": null,
-      "timestamp": "2026-06-19T08:26:50.531431+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "max_open_positions_reached",
-      "symbol": null,
-      "timestamp": "2026-06-19T08:31:51.755501+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "max_open_positions_reached",
@@ -222,6 +204,24 @@
       "reject_reason": "max_open_positions_reached",
       "symbol": null,
       "timestamp": "2026-06-19T10:43:00.773347+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "max_open_positions_reached",
+      "symbol": null,
+      "timestamp": "2026-06-19T10:48:02.524175+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "max_open_positions_reached",
+      "symbol": null,
+      "timestamp": "2026-06-19T10:53:04.844662+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "max_open_positions_reached",
+      "symbol": null,
+      "timestamp": "2026-06-19T10:58:06.281268+00:00"
     }
   ],
   "service": {
@@ -239,7 +239,7 @@
     "BTC-USDT-SWAP",
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-19T10:45:16.266039+00:00",
+  "timestamp": "2026-06-19T11:00:16.281707+00:00",
   "trades": [
     {
       "event": "OPEN",

@@ -1,73 +1,25 @@
 {
   "account": {
-    "equity_usdt": 199.4861247643435,
-    "open_positions": [
-      {
-        "ai_confidence": 0.0,
-        "entry_price": 62724.6,
-        "notional_usdt": 200.0,
-        "side": "SHORT",
-        "size": "0.31",
-        "stop_loss_price": 63038.22299999999,
-        "symbol": "BTC-USDT-SWAP",
-        "take_profit_price": 62175.75975,
-        "timestamp": "2026-06-18T22:35:06.158771+00:00"
-      }
-    ],
-    "realized_pnl_usdt": -0.06191701131761418
+    "equity_usdt": 199.5001045902803,
+    "open_positions": [],
+    "realized_pnl_usdt": -1.0721254462857082
   },
   "daily": {
-    "consecutive_losses": 0,
+    "consecutive_losses": 1,
     "daily_net_loss_limit_usdt": 0.0,
-    "daily_net_pnl_usdt": 0.0,
+    "daily_net_pnl_usdt": -1.010208434968094,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-19",
-    "losses": 0,
+    "losses": 1,
     "stop_reason": null,
     "stop_trading_today": false,
-    "trades_count": 0,
+    "trades_count": 1,
     "wins": 0
   },
   "errors": [],
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "symbol_already_has_open_position",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-18T23:30:37.379757+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-18T23:30:38.211139+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "symbol_already_has_open_position",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-18T23:35:39.168271+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-18T23:35:39.990136+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "symbol_already_has_open_position",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-18T23:40:42.480289+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-18T23:40:43.351126+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "symbol_already_has_open_position",
@@ -211,6 +163,42 @@
       "reject_reason": "no_rule_candidate",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T00:41:22.775591+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "symbol_already_has_open_position",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-19T00:46:28.718849+00:00"
+    },
+    {
+      "candidate_action": "SHORT",
+      "reject_reason": "ai_confidence_too_low",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-19T00:46:33.467622+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-19T00:51:37.355650+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-19T00:51:39.386645+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-19T00:56:43.140701+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-19T00:56:44.124280+00:00"
     }
   ],
   "service": {
@@ -228,7 +216,7 @@
     "BTC-USDT-SWAP",
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-19T00:45:16.267428+00:00",
+  "timestamp": "2026-06-19T01:00:16.266209+00:00",
   "trades": [
     {
       "event": "OPEN",
@@ -279,6 +267,16 @@
       "side": "SHORT",
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-18T22:35:06.158771+00:00"
+    },
+    {
+      "event": "CLOSE",
+      "exit_reason": "exchange_tpsl_closed",
+      "net_pnl_usdt": -1.010208434968094,
+      "notional_usdt": 0.0,
+      "price": 62978.7,
+      "side": "BUY",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-19T00:51:35.058015+00:00"
     }
   ]
 }

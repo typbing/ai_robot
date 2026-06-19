@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 
 from ai_robot.config import BotConfig, load_config
 from ai_robot.logging_utils import utc_now_iso
+from ai_robot.strategy_stats import build_strategy_stats
 
 
 def read_json(path: Path, default: dict[str, Any]) -> dict[str, Any]:
@@ -81,6 +82,7 @@ def build_status(config: BotConfig) -> dict[str, Any]:
         "daily": daily,
         "trades": read_jsonl_tail(logs / ("live_trades.jsonl" if config.mode == "live" else "trades.jsonl"), 40),
         "signals": read_jsonl_tail(logs / ("live_signals.jsonl" if config.mode == "live" else "signals.jsonl"), 20),
+        "strategy_stats": build_strategy_stats(logs, config.mode == "live"),
         "rejects": read_jsonl_tail(logs / ("live_rejects.jsonl" if config.mode == "live" else "rejects.jsonl"), 30),
         "errors": read_jsonl_tail(logs / ("live_errors.jsonl" if config.mode == "live" else "errors.jsonl"), 20),
         "notifications": read_jsonl_tail(logs / "notifications.jsonl", 20),

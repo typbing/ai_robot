@@ -116,6 +116,12 @@ class LiveBroker:
         self.daily["daily_net_loss_limit_usdt"] = daily_loss_limit_usdt(self.config, equity)
         self.daily["daily_profit_stop_enabled"] = False
         self.daily.pop("daily_net_profit_target_usdt", None)
+        if (
+            daily_loss_limit_enabled(self.config)
+            and float(self.daily.get("daily_net_pnl_usdt", 0.0)) <= float(self.daily["daily_net_loss_limit_usdt"])
+        ):
+            self.daily["stop_trading_today"] = True
+            self.daily["stop_reason"] = "daily_net_loss_limit_reached"
 
     def daily_loss_limit_usdt(self) -> float:
         self.refresh_daily_limits()
@@ -221,6 +227,10 @@ class LiveBroker:
             "notional_usdt": notional,
             "take_profit_price": signal["take_profit_price"],
             "stop_loss_price": signal["stop_loss_price"],
+            "strategy_mode": signal.get("strategy_mode"),
+            "rule_market_regime": signal.get("rule_market_regime"),
+            "market_regime": signal.get("market_regime"),
+            "ai_confidence": signal.get("ai_confidence"),
             "order_response": response,
         }
         positions = self.open_positions
@@ -305,6 +315,10 @@ class LiveBroker:
             "size": position["size"],
             "estimated_net_pnl_usdt": net_pnl,
             "exit_reason": "exchange_tpsl_closed",
+            "strategy_mode": position.get("strategy_mode"),
+            "rule_market_regime": position.get("rule_market_regime"),
+            "market_regime": position.get("market_regime"),
+            "ai_confidence": position.get("ai_confidence"),
         }
         append_jsonl(self.trades_path, event)
         self._persist()
@@ -338,6 +352,10 @@ class LiveBroker:
             "size": position["size"],
             "estimated_net_pnl_usdt": net_pnl,
             "exit_reason": exit_reason,
+            "strategy_mode": position.get("strategy_mode"),
+            "rule_market_regime": position.get("rule_market_regime"),
+            "market_regime": position.get("market_regime"),
+            "ai_confidence": position.get("ai_confidence"),
             "order_response": response,
         }
         append_jsonl(self.trades_path, event)

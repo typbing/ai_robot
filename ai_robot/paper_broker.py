@@ -74,6 +74,12 @@ class PaperBroker:
         current["daily_net_loss_limit_usdt"] = self.daily_loss_limit_usdt()
         current["daily_profit_stop_enabled"] = False
         current.pop("daily_net_profit_target_usdt", None)
+        if (
+            daily_loss_limit_enabled(self.config)
+            and float(current.get("daily_net_pnl_usdt", 0.0)) <= float(current["daily_net_loss_limit_usdt"])
+        ):
+            current["stop_trading_today"] = True
+            current["stop_reason"] = "daily_net_loss_limit_reached"
         return current
 
     def current_equity_usdt(self) -> float:
@@ -133,6 +139,9 @@ class PaperBroker:
             "entry_fee_type": signal["entry_fee_type"],
             "exit_fee_type": signal["exit_fee_type"],
             "ai_confidence": signal["ai_confidence"],
+            "strategy_mode": signal.get("strategy_mode"),
+            "rule_market_regime": signal.get("rule_market_regime"),
+            "market_regime": signal.get("market_regime"),
         }
         positions = self.open_positions
         positions.append(position)
@@ -231,6 +240,10 @@ class PaperBroker:
             "gross_pnl_usdt": gross_pnl,
             "net_pnl_usdt": net_pnl,
             "exit_reason": exit_reason,
+            "strategy_mode": position.get("strategy_mode"),
+            "rule_market_regime": position.get("rule_market_regime"),
+            "market_regime": position.get("market_regime"),
+            "ai_confidence": position.get("ai_confidence"),
         }
         append_jsonl(self.trades_path, event)
         self._persist()

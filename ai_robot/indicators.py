@@ -102,12 +102,26 @@ def summarize_market(base: list[Candle], trend: list[Candle], high_volatility_at
 
     if atr_pct >= high_volatility_atr_pct:
         regime = "high_volatility"
-    elif ema20_trend > ema50_trend and last_price > ema20_base:
+    elif ema20_trend > ema50_trend and ema20_base > ema50_base and last_price > ema20_base:
         regime = "bullish_trend"
-    elif ema20_trend < ema50_trend and last_price < ema20_base:
+    elif ema20_trend < ema50_trend and ema20_base < ema50_base and last_price < ema20_base:
         regime = "bearish_trend"
     else:
         regime = "range"
+
+    if ema20_trend > ema50_trend:
+        trend_timeframe_bias = "bullish"
+    elif ema20_trend < ema50_trend:
+        trend_timeframe_bias = "bearish"
+    else:
+        trend_timeframe_bias = "flat"
+
+    if ema20_base > ema50_base and last_price > ema20_base:
+        base_timeframe_bias = "bullish"
+    elif ema20_base < ema50_base and last_price < ema20_base:
+        base_timeframe_bias = "bearish"
+    else:
+        base_timeframe_bias = "mixed"
 
     return {
         "price": last_price,
@@ -125,5 +139,8 @@ def summarize_market(base: list[Candle], trend: list[Candle], high_volatility_at
         "consecutive_down_closes": consecutive_direction(base_closes, "down"),
         "volume_state": volume_state(base),
         "market_regime_rule": regime,
+        "trend_timeframe_bias": trend_timeframe_bias,
+        "base_timeframe_bias": base_timeframe_bias,
+        "regime_alignment": "aligned" if trend_timeframe_bias == base_timeframe_bias else "mixed",
         "last_candle_time": base[-1].timestamp.isoformat(),
     }

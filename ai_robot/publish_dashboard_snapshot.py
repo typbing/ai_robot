@@ -37,6 +37,8 @@ def pick_position(position: dict[str, Any]) -> dict[str, Any]:
         "notional_usdt": number(position.get("notional_usdt") or position.get("notionalUsd") or position.get("notional")),
         "size": str(position.get("size") or position.get("pos") or ""),
         "ai_confidence": number(position.get("ai_confidence")),
+        "strategy_mode": position.get("strategy_mode"),
+        "rule_market_regime": position.get("rule_market_regime"),
     }
 
 
@@ -53,6 +55,8 @@ def pick_trade(event: dict[str, Any]) -> dict[str, Any]:
         "notional_usdt": number(event.get("notional_usdt")),
         "net_pnl_usdt": number(net_pnl),
         "exit_reason": event.get("exit_reason"),
+        "strategy_mode": event.get("strategy_mode"),
+        "rule_market_regime": event.get("rule_market_regime"),
     }
 
 
@@ -106,6 +110,7 @@ def sanitized_status(config_path: str | Path) -> dict[str, Any]:
             "stop_reason": daily.get("stop_reason"),
         },
         "trades": [pick_trade(item) for item in status.get("trades", []) if isinstance(item, dict)][-40:],
+        "strategy_stats": status.get("strategy_stats", {}),
         "signals": [],
         "rejects": [pick_reject(item) for item in status.get("rejects", []) if isinstance(item, dict)][-30:],
         "errors": [],

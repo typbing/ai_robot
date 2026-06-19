@@ -1,14 +1,16 @@
 {
   "account": {
-    "equity_usdt": 199.25693245459195,
+    "equity_usdt": 199.64005199174588,
     "open_positions": [
       {
         "ai_confidence": 0.0,
         "entry_price": 63254.6,
         "notional_usdt": 200.0,
+        "rule_market_regime": null,
         "side": "SHORT",
         "size": "0.31",
         "stop_loss_price": 63570.87299999999,
+        "strategy_mode": null,
         "symbol": "BTC-USDT-SWAP",
         "take_profit_price": 62701.12224999999,
         "timestamp": "2026-06-19T14:52:34.296912+00:00"
@@ -18,13 +20,13 @@
   },
   "daily": {
     "consecutive_losses": 4,
-    "daily_net_loss_limit_usdt": 0.0,
+    "daily_net_loss_limit_usdt": -2.9946007798761882,
     "daily_net_pnl_usdt": -3.6571951587154214,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-19",
     "losses": 6,
-    "stop_reason": null,
-    "stop_trading_today": false,
+    "stop_reason": "daily_net_loss_limit_reached",
+    "stop_trading_today": true,
     "trades_count": 9,
     "wins": 3
   },
@@ -32,42 +34,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-19T13:56:15.121258+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-19T13:56:15.995063+00:00"
-    },
-    {
-      "candidate_action": "SHORT",
-      "reject_reason": "ai_confidence_too_low",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-19T14:01:20.818476+00:00"
-    },
-    {
-      "candidate_action": "SHORT",
-      "reject_reason": "ai_confidence_too_low",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-19T14:01:23.720823+00:00"
-    },
-    {
-      "candidate_action": "SHORT",
-      "reject_reason": "ai_confidence_too_low",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-19T14:06:32.741299+00:00"
-    },
-    {
-      "candidate_action": "SHORT",
-      "reject_reason": "ai_confidence_too_low",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-19T14:06:35.465294+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "no_rule_candidate",
@@ -211,6 +177,42 @@
       "reject_reason": "no_rule_candidate",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T15:13:02.778094+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "symbol_already_has_open_position",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-19T15:18:08.802759+00:00"
+    },
+    {
+      "candidate_action": "SHORT",
+      "reject_reason": "ai_confidence_too_low",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-19T15:18:16.909846+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "symbol_already_has_open_position",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-19T15:23:18.978158+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-19T15:23:20.376047+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-19T15:24:03.565483+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-19T15:29:09.537526+00:00"
     }
   ],
   "service": {
@@ -224,11 +226,107 @@
     "redaction": "raw exchange payloads, order responses, error bodies, notification responses, and credentials are excluded",
     "update_interval_minutes": 15
   },
+  "strategy_stats": {
+    "by_regime": {
+      "bearish_trend": {
+        "avg_loss_usdt": -1.2066963360540555,
+        "avg_win_usdt": 1.1568349485617944,
+        "closed_trades": 10,
+        "gross_loss_usdt": -7.24017802,
+        "gross_win_usdt": 4.62733979,
+        "losses": 6,
+        "net_pnl_usdt": -2.61283822,
+        "win_rate": 0.4,
+        "wins": 4
+      },
+      "range": {
+        "avg_loss_usdt": -1.1062739479558812,
+        "avg_win_usdt": 0.0,
+        "closed_trades": 1,
+        "gross_loss_usdt": -1.10627395,
+        "gross_win_usdt": 0.0,
+        "losses": 1,
+        "net_pnl_usdt": -1.10627395,
+        "win_rate": 0.0,
+        "wins": 0
+      }
+    },
+    "by_strategy": {
+      "range_reversal": {
+        "avg_loss_usdt": -1.1062739479558812,
+        "avg_win_usdt": 0.0,
+        "closed_trades": 1,
+        "gross_loss_usdt": -1.10627395,
+        "gross_win_usdt": 0.0,
+        "losses": 1,
+        "net_pnl_usdt": -1.10627395,
+        "win_rate": 0.0,
+        "wins": 0
+      },
+      "trend_momentum": {
+        "avg_loss_usdt": -1.0123065077557214,
+        "avg_win_usdt": 0.0,
+        "closed_trades": 1,
+        "gross_loss_usdt": -1.01230651,
+        "gross_win_usdt": 0.0,
+        "losses": 1,
+        "net_pnl_usdt": -1.01230651,
+        "win_rate": 0.0,
+        "wins": 0
+      },
+      "trend_pullback": {
+        "avg_loss_usdt": -1.1902344183088398,
+        "avg_win_usdt": 1.0741076567438468,
+        "closed_trades": 7,
+        "gross_loss_usdt": -4.76093767,
+        "gross_win_usdt": 3.22232297,
+        "losses": 4,
+        "net_pnl_usdt": -1.5386147,
+        "win_rate": 0.42857142857142855,
+        "wins": 3
+      },
+      "unknown": {
+        "avg_loss_usdt": -1.4669338353332517,
+        "avg_win_usdt": 1.4050168240156375,
+        "closed_trades": 2,
+        "gross_loss_usdt": -1.46693384,
+        "gross_win_usdt": 1.40501682,
+        "losses": 1,
+        "net_pnl_usdt": -0.06191701,
+        "win_rate": 0.5,
+        "wins": 1
+      }
+    },
+    "by_symbol": {
+      "BTC-USDT-SWAP": {
+        "avg_loss_usdt": -1.0720448977955304,
+        "avg_win_usdt": 1.2513404940855501,
+        "closed_trades": 5,
+        "gross_loss_usdt": -4.28817959,
+        "gross_win_usdt": 1.25134049,
+        "losses": 4,
+        "net_pnl_usdt": -3.0368391,
+        "win_rate": 0.2,
+        "wins": 1
+      },
+      "ETH-USDT-SWAP": {
+        "avg_loss_usdt": -1.352757457699364,
+        "avg_win_usdt": 1.1253331000538758,
+        "closed_trades": 6,
+        "gross_loss_usdt": -4.05827237,
+        "gross_win_usdt": 3.3759993,
+        "losses": 3,
+        "net_pnl_usdt": -0.68227307,
+        "win_rate": 0.5,
+        "wins": 3
+      }
+    }
+  },
   "symbols": [
     "BTC-USDT-SWAP",
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-19T15:15:16.293236+00:00",
+  "timestamp": "2026-06-19T15:30:03.836614+00:00",
   "trades": [
     {
       "event": "OPEN",
@@ -236,7 +334,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 1744.53,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-17T21:40:02.109652+00:00"
     },
@@ -246,7 +346,9 @@
       "net_pnl_usdt": 1.4050168240156375,
       "notional_usdt": 0.0,
       "price": 1730.53,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-17T22:05:20.501974+00:00"
     },
@@ -256,7 +358,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 1731.74,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-18T14:30:38.153048+00:00"
     },
@@ -266,7 +370,9 @@
       "net_pnl_usdt": -1.4669338353332517,
       "notional_usdt": 0.0,
       "price": 1742.71,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-18T14:40:50.805507+00:00"
     },
@@ -276,7 +382,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 62724.6,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-18T22:35:06.158771+00:00"
     },
@@ -286,7 +394,9 @@
       "net_pnl_usdt": -1.010208434968094,
       "notional_usdt": 0.0,
       "price": 62978.7,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T00:51:35.058015+00:00"
     },
@@ -296,7 +406,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 62879.8,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T01:11:58.085028+00:00"
     },
@@ -306,7 +418,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 1706.68,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T02:22:52.725969+00:00"
     },
@@ -316,7 +430,9 @@
       "net_pnl_usdt": 0.8956945648862278,
       "notional_usdt": 0.0,
       "price": 1697.33,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T03:24:18.651340+00:00"
     },
@@ -326,7 +442,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 1698.44,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T03:29:27.232529+00:00"
     },
@@ -336,7 +454,9 @@
       "net_pnl_usdt": 1.2513404940855501,
       "notional_usdt": 0.0,
       "price": 62423.5,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T09:17:10.087285+00:00"
     },
@@ -346,7 +466,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 62341.0,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T09:22:33.442697+00:00"
     },
@@ -356,7 +478,9 @@
       "net_pnl_usdt": -1.0123065077557214,
       "notional_usdt": 0.0,
       "price": 62594.2,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T11:28:19.733352+00:00"
     },
@@ -366,7 +490,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 62498.0,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T12:19:35.414196+00:00"
     },
@@ -376,7 +502,9 @@
       "net_pnl_usdt": 1.0752879112597624,
       "notional_usdt": 0.0,
       "price": 1687.61,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T12:39:48.157972+00:00"
     },
@@ -386,7 +514,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 1687.97,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T12:39:54.377094+00:00"
     },
@@ -396,7 +526,9 @@
       "net_pnl_usdt": -1.1593907005024253,
       "notional_usdt": 0.0,
       "price": 62797.8,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T13:00:03.663886+00:00"
     },
@@ -406,7 +538,9 @@
       "net_pnl_usdt": -0.8931402809291527,
       "notional_usdt": 0.0,
       "price": 1693.82,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T13:10:19.828464+00:00"
     },
@@ -416,7 +550,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 1690.03,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T13:25:50.497109+00:00"
     },
@@ -426,7 +562,9 @@
       "net_pnl_usdt": -1.698198256835687,
       "notional_usdt": 0.0,
       "price": 1702.69,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-19T13:51:09.983731+00:00"
     },
@@ -436,7 +574,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 63027.3,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T14:11:51.821670+00:00"
     },
@@ -446,7 +586,9 @@
       "net_pnl_usdt": -1.1062739479558812,
       "notional_usdt": 0.0,
       "price": 63312.9,
+      "rule_market_regime": null,
       "side": "BUY",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T14:42:14.782200+00:00"
     },
@@ -456,7 +598,9 @@
       "net_pnl_usdt": 0.0,
       "notional_usdt": 200.0,
       "price": 63254.6,
+      "rule_market_regime": null,
       "side": "SHORT",
+      "strategy_mode": null,
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-19T14:52:34.296912+00:00"
     }

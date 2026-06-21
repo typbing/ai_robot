@@ -1,6 +1,6 @@
 {
   "account": {
-    "equity_usdt": 198.99363659401877,
+    "equity_usdt": 198.97422840874503,
     "open_positions": [
       {
         "ai_confidence": 0.7,
@@ -33,38 +33,20 @@
   },
   "daily": {
     "consecutive_losses": 0,
-    "daily_net_loss_limit_usdt": -2.9849045489102815,
-    "daily_net_pnl_usdt": 1.0546463869145082,
+    "daily_net_loss_limit_usdt": -2.984613426131175,
+    "daily_net_pnl_usdt": 0.0,
     "daily_profit_stop_enabled": false,
-    "date": "2026-06-20",
-    "losses": 2,
+    "date": "2026-06-21",
+    "losses": 0,
     "stop_reason": null,
     "stop_trading_today": false,
-    "trades_count": 4,
-    "wins": 2
+    "trades_count": 0,
+    "wins": 0
   },
   "errors": [],
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "max_open_positions_reached",
-      "symbol": null,
-      "timestamp": "2026-06-20T22:11:31.165601+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "max_open_positions_reached",
-      "symbol": null,
-      "timestamp": "2026-06-20T22:16:35.256039+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "max_open_positions_reached",
-      "symbol": null,
-      "timestamp": "2026-06-20T22:21:36.080391+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "max_open_positions_reached",
@@ -226,6 +208,24 @@
       "reject_reason": "max_open_positions_reached",
       "symbol": null,
       "timestamp": "2026-06-20T23:42:43.463984+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "max_open_positions_reached",
+      "symbol": null,
+      "timestamp": "2026-06-20T23:47:46.661740+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "max_open_positions_reached",
+      "symbol": null,
+      "timestamp": "2026-06-20T23:52:48.828148+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "max_open_positions_reached",
+      "symbol": null,
+      "timestamp": "2026-06-20T23:57:51.096560+00:00"
     }
   ],
   "service": {
@@ -350,7 +350,7 @@
     "BTC-USDT-SWAP",
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-20T23:45:16.264934+00:00",
+  "timestamp": "2026-06-21T00:00:16.267909+00:00",
   "trades": [
     {
       "event": "OPEN",

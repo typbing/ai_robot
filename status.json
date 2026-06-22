@@ -1,12 +1,26 @@
 {
   "account": {
-    "equity_usdt": 193.5088148440428,
-    "open_positions": [],
+    "equity_usdt": 193.3393938766632,
+    "open_positions": [
+      {
+        "ai_confidence": 0.7,
+        "entry_price": 1745.0,
+        "notional_usdt": 200.0,
+        "rule_market_regime": "bullish_trend",
+        "side": "LONG",
+        "size": "1.14",
+        "stop_loss_price": 1736.275,
+        "strategy_mode": "trend_momentum",
+        "symbol": "ETH-USDT-SWAP",
+        "take_profit_price": 1760.26875,
+        "timestamp": "2026-06-22T01:56:35.231409+00:00"
+      }
+    ],
     "realized_pnl_usdt": -8.45823999971809
   },
   "daily": {
     "consecutive_losses": 0,
-    "daily_net_loss_limit_usdt": -2.902632222660642,
+    "daily_net_loss_limit_usdt": -2.9000909081499477,
     "daily_net_pnl_usdt": 0.0,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-22",
@@ -20,36 +34,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "scan_error",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-22T00:31:06.600831+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "scan_error",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-22T00:31:18.890177+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-22T00:35:23.264331+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-22T00:35:24.058162+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "BTC-USDT-SWAP",
-      "timestamp": "2026-06-22T00:40:25.796287+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "no_rule_candidate",
@@ -199,6 +183,36 @@
       "reject_reason": "no_rule_candidate",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-22T01:41:13.144780+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-22T01:46:15.851112+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-22T01:46:16.917167+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-22T01:51:18.708414+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-22T01:51:20.812136+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "no_rule_candidate",
+      "symbol": "BTC-USDT-SWAP",
+      "timestamp": "2026-06-22T01:56:31.108739+00:00"
     }
   ],
   "service": {
@@ -323,20 +337,8 @@
     "BTC-USDT-SWAP",
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-22T01:45:16.286461+00:00",
+  "timestamp": "2026-06-22T02:00:16.264497+00:00",
   "trades": [
-    {
-      "event": "OPEN",
-      "exit_reason": null,
-      "net_pnl_usdt": 0.0,
-      "notional_usdt": 200.0,
-      "price": 1744.53,
-      "rule_market_regime": null,
-      "side": "SHORT",
-      "strategy_mode": null,
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-17T21:40:02.109652+00:00"
-    },
     {
       "event": "CLOSE",
       "exit_reason": "take_profit",
@@ -804,6 +806,18 @@
       "strategy_mode": "trend_pullback",
       "symbol": "BTC-USDT-SWAP",
       "timestamp": "2026-06-21T20:52:16.567379+00:00"
+    },
+    {
+      "event": "OPEN",
+      "exit_reason": null,
+      "net_pnl_usdt": 0.0,
+      "notional_usdt": 200.0,
+      "price": 1745.0,
+      "rule_market_regime": "bullish_trend",
+      "side": "LONG",
+      "strategy_mode": "trend_momentum",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-22T01:56:35.231409+00:00"
     }
   ]
 }

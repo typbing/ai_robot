@@ -1,12 +1,12 @@
 {
   "account": {
-    "equity_usdt": 191.24524376612698,
+    "equity_usdt": 191.2394998032567,
     "open_positions": [],
     "realized_pnl_usdt": -12.066492010928282
   },
   "daily": {
     "consecutive_losses": 2,
-    "daily_net_loss_limit_usdt": -2.8686786564919045,
+    "daily_net_loss_limit_usdt": -2.8685924970488506,
     "daily_net_pnl_usdt": -3.608252011210192,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-22",
@@ -20,24 +20,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
-      "timestamp": "2026-06-22T15:46:06.446209+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
-      "timestamp": "2026-06-22T15:51:07.170573+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
-      "timestamp": "2026-06-22T15:56:07.789134+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "mark_price_error",
@@ -199,6 +181,24 @@
       "reject_reason": "daily_net_loss_limit_reached",
       "symbol": null,
       "timestamp": "2026-06-22T17:57:37.341331+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-22T18:02:38.739211+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-22T18:07:39.368509+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-22T18:12:45.498079+00:00"
     }
   ],
   "service": {
@@ -322,7 +322,7 @@
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-22T18:00:16.262390+00:00",
+  "timestamp": "2026-06-22T18:15:16.262837+00:00",
   "trades": [
     {
       "event": "OPEN",

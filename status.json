@@ -1,12 +1,12 @@
 {
   "account": {
-    "equity_usdt": 191.7520508649412,
+    "equity_usdt": 191.76741438155562,
     "open_positions": [],
     "realized_pnl_usdt": -15.482940829657467
   },
   "daily": {
     "consecutive_losses": 2,
-    "daily_net_loss_limit_usdt": -2.876280762974118,
+    "daily_net_loss_limit_usdt": -2.876511215723334,
     "daily_net_pnl_usdt": -3.4164488187291844,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-24",
@@ -20,24 +20,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "symbol_already_has_open_position",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-24T13:14:06.656682+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "symbol_already_has_open_position",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-24T13:19:13.358663+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "symbol_already_has_open_position",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-24T13:24:14.301695+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "symbol_already_has_open_position",
@@ -199,6 +181,24 @@
       "reject_reason": "daily_net_loss_limit_reached",
       "symbol": null,
       "timestamp": "2026-06-24T15:55:22.828628+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-24T16:00:23.393005+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-24T16:05:23.993786+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-24T16:10:24.808342+00:00"
     }
   ],
   "service": {
@@ -322,7 +322,7 @@
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-24T16:00:16.287121+00:00",
+  "timestamp": "2026-06-24T16:15:16.266984+00:00",
   "trades": [
     {
       "event": "CLOSE",

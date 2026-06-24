@@ -1,12 +1,12 @@
 {
   "account": {
-    "equity_usdt": 191.7597326232484,
+    "equity_usdt": 191.74436910663397,
     "open_positions": [],
     "realized_pnl_usdt": -15.482940829657467
   },
   "daily": {
     "consecutive_losses": 2,
-    "daily_net_loss_limit_usdt": -2.8763959893487256,
+    "daily_net_loss_limit_usdt": -2.8761655365995096,
     "daily_net_pnl_usdt": -3.4164488187291844,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-24",
@@ -20,24 +20,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
-      "timestamp": "2026-06-24T21:01:53.123380+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
-      "timestamp": "2026-06-24T21:06:53.695660+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
-      "timestamp": "2026-06-24T21:11:59.293226+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "daily_net_loss_limit_reached",
@@ -199,6 +181,24 @@
       "reject_reason": "daily_net_loss_limit_reached",
       "symbol": null,
       "timestamp": "2026-06-24T23:27:25.905684+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-24T23:32:26.514485+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-24T23:37:32.213057+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-24T23:42:33.863028+00:00"
     }
   ],
   "service": {
@@ -322,7 +322,7 @@
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-24T23:30:16.281434+00:00",
+  "timestamp": "2026-06-24T23:45:16.280567+00:00",
   "trades": [
     {
       "event": "CLOSE",

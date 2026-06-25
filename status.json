@@ -24,24 +24,6 @@
       "candidate_action": null,
       "reject_reason": "daily_net_loss_limit_reached",
       "symbol": null,
-      "timestamp": "2026-06-25T12:18:33.613133+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
-      "timestamp": "2026-06-25T12:23:34.803252+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
-      "timestamp": "2026-06-25T12:28:35.404957+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "daily_net_loss_limit_reached",
-      "symbol": null,
       "timestamp": "2026-06-25T12:33:37.001005+00:00"
     },
     {
@@ -199,6 +181,24 @@
       "reject_reason": "daily_net_loss_limit_reached",
       "symbol": null,
       "timestamp": "2026-06-25T14:44:12.471774+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-25T14:49:13.069911+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-25T14:54:13.619925+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "daily_net_loss_limit_reached",
+      "symbol": null,
+      "timestamp": "2026-06-25T14:59:14.310300+00:00"
     }
   ],
   "service": {
@@ -322,7 +322,7 @@
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-25T14:45:16.287051+00:00",
+  "timestamp": "2026-06-25T15:00:16.285522+00:00",
   "trades": [
     {
       "event": "CLOSE",

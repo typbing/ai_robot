@@ -1,12 +1,26 @@
 {
   "account": {
-    "equity_usdt": 184.54072377176215,
-    "open_positions": [],
+    "equity_usdt": 184.46741883551832,
+    "open_positions": [
+      {
+        "ai_confidence": 0.7,
+        "entry_price": 1581.51,
+        "notional_usdt": 150.0,
+        "rule_market_regime": "range",
+        "side": "LONG",
+        "size": "0.94",
+        "stop_loss_price": 1568.85792,
+        "strategy_mode": "range_reversal",
+        "symbol": "ETH-USDT-SWAP",
+        "take_profit_price": 1602.0696299999997,
+        "timestamp": "2026-06-27T20:15:54.670002+00:00"
+      }
+    ],
     "realized_pnl_usdt": -16.14185014
   },
   "daily": {
     "consecutive_losses": 0,
-    "daily_net_loss_limit_usdt": -2.768110856576432,
+    "daily_net_loss_limit_usdt": -2.7670112825327746,
     "daily_net_pnl_usdt": -0.6818869249999999,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-27",
@@ -203,7 +217,7 @@
   ],
   "service": {
     "dashboard": "active",
-    "live": "inactive",
+    "live": "active",
     "paper": "inactive"
   },
   "signals": [],
@@ -322,20 +336,8 @@
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-27T20:15:16.265002+00:00",
+  "timestamp": "2026-06-27T20:17:01.422635+00:00",
   "trades": [
-    {
-      "event": "CLOSE",
-      "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.1782903200000001,
-      "notional_usdt": 0.0,
-      "price": 1731.58,
-      "rule_market_regime": "bullish_trend",
-      "side": "SELL",
-      "strategy_mode": "trend_momentum",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-21T05:00:19.246543+00:00"
-    },
     {
       "event": "OPEN",
       "exit_reason": null,
@@ -803,6 +805,18 @@
       "strategy_mode": "range_reversal",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-27T20:12:10.910664+00:00"
+    },
+    {
+      "event": "OPEN",
+      "exit_reason": null,
+      "net_pnl_usdt": 0.0,
+      "notional_usdt": 150.0,
+      "price": 1581.51,
+      "rule_market_regime": "range",
+      "side": "LONG",
+      "strategy_mode": "range_reversal",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-27T20:15:54.670002+00:00"
     }
   ]
 }

@@ -1,45 +1,25 @@
 {
   "account": {
-    "equity_usdt": 184.4685522960395,
-    "open_positions": [
-      {
-        "ai_confidence": 0.7,
-        "entry_price": 1579.2,
-        "notional_usdt": 150.0,
-        "rule_market_regime": "range",
-        "side": "LONG",
-        "size": "0.94",
-        "stop_loss_price": 1566.5664,
-        "strategy_mode": "range_reversal",
-        "symbol": "ETH-USDT-SWAP",
-        "take_profit_price": 1599.7296,
-        "timestamp": "2026-06-27T20:04:52.852508+00:00"
-      }
-    ],
-    "realized_pnl_usdt": -16.17000878
+    "equity_usdt": 184.54072377176215,
+    "open_positions": [],
+    "realized_pnl_usdt": -16.14185014
   },
   "daily": {
     "consecutive_losses": 0,
-    "daily_net_loss_limit_usdt": -2.7670282844405922,
-    "daily_net_pnl_usdt": -0.7100455649999999,
+    "daily_net_loss_limit_usdt": -2.768110856576432,
+    "daily_net_pnl_usdt": -0.6818869249999999,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-27",
     "losses": 2,
     "stop_reason": null,
     "stop_trading_today": false,
-    "trades_count": 3,
-    "wins": 1
+    "trades_count": 4,
+    "wins": 2
   },
   "errors": [],
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "symbol_already_has_open_position",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-27T17:39:12.076809+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "symbol_already_has_open_position",
@@ -213,11 +193,17 @@
       "reject_reason": "ai_confidence_too_low",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-27T20:02:19.696958+00:00"
+    },
+    {
+      "candidate_action": null,
+      "reject_reason": "symbol_already_has_open_position",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-27T20:09:54.682262+00:00"
     }
   ],
   "service": {
     "dashboard": "active",
-    "live": "active",
+    "live": "inactive",
     "paper": "inactive"
   },
   "signals": [],
@@ -252,27 +238,27 @@
       },
       "range": {
         "avg_loss_usdt": -1.3136675914285714,
-        "avg_win_usdt": 1.9316645283333334,
-        "closed_trades": 10,
+        "avg_win_usdt": 1.45578805625,
+        "closed_trades": 11,
         "gross_loss_usdt": -9.19567314,
-        "gross_win_usdt": 5.79499359,
+        "gross_win_usdt": 5.82315223,
         "losses": 7,
-        "net_pnl_usdt": -3.40067955,
-        "win_rate": 0.3,
-        "wins": 3
+        "net_pnl_usdt": -3.37252091,
+        "win_rate": 0.36363636363636365,
+        "wins": 4
       }
     },
     "by_strategy": {
       "range_reversal": {
         "avg_loss_usdt": -1.3136675914285714,
-        "avg_win_usdt": 1.9316645283333334,
-        "closed_trades": 10,
+        "avg_win_usdt": 1.45578805625,
+        "closed_trades": 11,
         "gross_loss_usdt": -9.19567314,
-        "gross_win_usdt": 5.79499359,
+        "gross_win_usdt": 5.82315223,
         "losses": 7,
-        "net_pnl_usdt": -3.40067955,
-        "win_rate": 0.3,
-        "wins": 3
+        "net_pnl_usdt": -3.37252091,
+        "win_rate": 0.36363636363636365,
+        "wins": 4
       },
       "trend_momentum": {
         "avg_loss_usdt": -1.167657522,
@@ -322,34 +308,22 @@
       },
       "ETH-USDT-SWAP": {
         "avg_loss_usdt": -1.380248522894737,
-        "avg_win_usdt": 1.8836509966666668,
-        "closed_trades": 28,
+        "avg_win_usdt": 1.6981017610000002,
+        "closed_trades": 29,
         "gross_loss_usdt": -26.22472194,
-        "gross_win_usdt": 16.95285897,
+        "gross_win_usdt": 16.98101761,
         "losses": 19,
-        "net_pnl_usdt": -9.27186296,
-        "win_rate": 0.32142857142857145,
-        "wins": 9
+        "net_pnl_usdt": -9.24370432,
+        "win_rate": 0.3448275862068966,
+        "wins": 10
       }
     }
   },
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-27T20:05:54.784155+00:00",
+  "timestamp": "2026-06-27T20:15:16.265002+00:00",
   "trades": [
-    {
-      "event": "OPEN",
-      "exit_reason": null,
-      "net_pnl_usdt": 0.0,
-      "notional_usdt": 200.0,
-      "price": 1740.06,
-      "rule_market_regime": "bullish_trend",
-      "side": "LONG",
-      "strategy_mode": "trend_momentum",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-20T23:32:39.269765+00:00"
-    },
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
@@ -817,6 +791,18 @@
       "strategy_mode": "range_reversal",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-27T20:04:52.852508+00:00"
+    },
+    {
+      "event": "CLOSE",
+      "exit_reason": "manual_user_close",
+      "net_pnl_usdt": 0.028158639999999985,
+      "notional_usdt": 0.0,
+      "price": 1581.38,
+      "rule_market_regime": "range",
+      "side": "SELL",
+      "strategy_mode": "range_reversal",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-27T20:12:10.910664+00:00"
     }
   ]
 }

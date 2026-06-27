@@ -1,13 +1,27 @@
 {
   "account": {
-    "equity_usdt": 184.50706548438663,
-    "open_positions": [],
-    "realized_pnl_usdt": -23.48631598463006
+    "equity_usdt": 184.4685522960395,
+    "open_positions": [
+      {
+        "ai_confidence": 0.7,
+        "entry_price": 1579.2,
+        "notional_usdt": 150.0,
+        "rule_market_regime": "range",
+        "side": "LONG",
+        "size": "0.94",
+        "stop_loss_price": 1566.5664,
+        "strategy_mode": "range_reversal",
+        "symbol": "ETH-USDT-SWAP",
+        "take_profit_price": 1599.7296,
+        "timestamp": "2026-06-27T20:04:52.852508+00:00"
+      }
+    ],
+    "realized_pnl_usdt": -16.17000878
   },
   "daily": {
     "consecutive_losses": 0,
-    "daily_net_loss_limit_usdt": -2.7676059822657995,
-    "daily_net_pnl_usdt": -0.3807757009232611,
+    "daily_net_loss_limit_usdt": -2.7670282844405922,
+    "daily_net_pnl_usdt": -0.7100455649999999,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-27",
     "losses": 2,
@@ -20,12 +34,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "symbol_already_has_open_position",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-27T17:34:10.449766+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "symbol_already_has_open_position",
@@ -199,6 +207,12 @@
       "reject_reason": "ai_confidence_too_low",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-27T20:00:15.180386+00:00"
+    },
+    {
+      "candidate_action": "LONG",
+      "reject_reason": "ai_confidence_too_low",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-27T20:02:19.696958+00:00"
     }
   ],
   "service": {
@@ -215,127 +229,115 @@
   "strategy_stats": {
     "by_regime": {
       "bearish_trend": {
-        "avg_loss_usdt": -1.4711920834102072,
-        "avg_win_usdt": 1.6815087667342876,
+        "avg_loss_usdt": -1.4407194204545455,
+        "avg_win_usdt": 1.8563016708333333,
         "closed_trades": 17,
-        "gross_loss_usdt": -16.18311292,
-        "gross_win_usdt": 10.0890526,
+        "gross_loss_usdt": -15.84791363,
+        "gross_win_usdt": 11.13781003,
         "losses": 11,
-        "net_pnl_usdt": -6.09406032,
+        "net_pnl_usdt": -4.7101036,
         "win_rate": 0.35294117647058826,
         "wins": 6
       },
       "bullish_trend": {
-        "avg_loss_usdt": -1.2864111617083136,
-        "avg_win_usdt": 1.3994263807051304,
+        "avg_loss_usdt": -1.2022283687500002,
+        "avg_win_usdt": 1.5586013250000001,
         "closed_trades": 9,
-        "gross_loss_usdt": -10.29128929,
-        "gross_win_usdt": 1.39942638,
+        "gross_loss_usdt": -9.61782695,
+        "gross_win_usdt": 1.55860133,
         "losses": 8,
-        "net_pnl_usdt": -8.89186291,
+        "net_pnl_usdt": -8.05922562,
         "win_rate": 0.1111111111111111,
         "wins": 1
       },
       "range": {
-        "avg_loss_usdt": -1.54983897240073,
-        "avg_win_usdt": 1.9491595123218535,
+        "avg_loss_usdt": -1.3136675914285714,
+        "avg_win_usdt": 1.9316645283333334,
         "closed_trades": 10,
-        "gross_loss_usdt": -12.39871178,
-        "gross_win_usdt": 3.89831902,
-        "losses": 8,
-        "net_pnl_usdt": -8.50039275,
-        "win_rate": 0.2,
-        "wins": 2
+        "gross_loss_usdt": -9.19567314,
+        "gross_win_usdt": 5.79499359,
+        "losses": 7,
+        "net_pnl_usdt": -3.40067955,
+        "win_rate": 0.3,
+        "wins": 3
       }
     },
     "by_strategy": {
       "range_reversal": {
-        "avg_loss_usdt": -1.54983897240073,
-        "avg_win_usdt": 1.9491595123218535,
+        "avg_loss_usdt": -1.3136675914285714,
+        "avg_win_usdt": 1.9316645283333334,
         "closed_trades": 10,
-        "gross_loss_usdt": -12.39871178,
-        "gross_win_usdt": 3.89831902,
-        "losses": 8,
-        "net_pnl_usdt": -8.50039275,
-        "win_rate": 0.2,
-        "wins": 2
+        "gross_loss_usdt": -9.19567314,
+        "gross_win_usdt": 5.79499359,
+        "losses": 7,
+        "net_pnl_usdt": -3.40067955,
+        "win_rate": 0.3,
+        "wins": 3
       },
       "trend_momentum": {
-        "avg_loss_usdt": -1.3914439092781,
+        "avg_loss_usdt": -1.167657522,
         "avg_win_usdt": 0.0,
         "closed_trades": 5,
-        "gross_loss_usdt": -6.95721955,
+        "gross_loss_usdt": -5.83828761,
         "gross_win_usdt": 0.0,
         "losses": 5,
-        "net_pnl_usdt": -6.95721955,
+        "net_pnl_usdt": -5.83828761,
         "win_rate": 0.0,
         "wins": 0
       },
       "trend_pullback": {
-        "avg_loss_usdt": -1.3884806791888489,
-        "avg_win_usdt": 1.6805770261825366,
+        "avg_loss_usdt": -1.3953578434615381,
+        "avg_win_usdt": 1.8939079233333336,
         "closed_trades": 19,
-        "gross_loss_usdt": -18.05024883,
-        "gross_win_usdt": 10.08346216,
+        "gross_loss_usdt": -18.13965196,
+        "gross_win_usdt": 11.36344754,
         "losses": 13,
-        "net_pnl_usdt": -7.96678667,
+        "net_pnl_usdt": -6.77620442,
         "win_rate": 0.3157894736842105,
         "wins": 6
       },
       "unknown": {
-        "avg_loss_usdt": -1.4669338353332517,
-        "avg_win_usdt": 1.4050168240156375,
+        "avg_loss_usdt": -1.4878010000000002,
+        "avg_win_usdt": 1.33296381,
         "closed_trades": 2,
-        "gross_loss_usdt": -1.46693384,
-        "gross_win_usdt": 1.40501682,
+        "gross_loss_usdt": -1.487801,
+        "gross_win_usdt": 1.33296381,
         "losses": 1,
-        "net_pnl_usdt": -0.06191701,
+        "net_pnl_usdt": -0.15483719,
         "win_rate": 0.5,
         "wins": 1
       }
     },
     "by_symbol": {
       "BTC-USDT-SWAP": {
-        "avg_loss_usdt": -1.1884146899253356,
-        "avg_win_usdt": 1.2513404940855501,
+        "avg_loss_usdt": -1.2052416828571428,
+        "avg_win_usdt": 1.5385459650000002,
         "closed_trades": 8,
-        "gross_loss_usdt": -8.31890283,
-        "gross_win_usdt": 1.25134049,
+        "gross_loss_usdt": -8.43669178,
+        "gross_win_usdt": 1.53854597,
         "losses": 7,
-        "net_pnl_usdt": -7.06756234,
+        "net_pnl_usdt": -6.89814581,
         "win_rate": 0.125,
         "wins": 1
       },
       "ETH-USDT-SWAP": {
-        "avg_loss_usdt": -1.5277105580453638,
-        "avg_win_usdt": 1.7669321889586265,
+        "avg_loss_usdt": -1.380248522894737,
+        "avg_win_usdt": 1.8836509966666668,
         "closed_trades": 28,
-        "gross_loss_usdt": -30.55421116,
-        "gross_win_usdt": 14.13545751,
-        "losses": 20,
-        "net_pnl_usdt": -16.41875365,
-        "win_rate": 0.2857142857142857,
-        "wins": 8
+        "gross_loss_usdt": -26.22472194,
+        "gross_win_usdt": 16.95285897,
+        "losses": 19,
+        "net_pnl_usdt": -9.27186296,
+        "win_rate": 0.32142857142857145,
+        "wins": 9
       }
     }
   },
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-27T20:00:16.266458+00:00",
+  "timestamp": "2026-06-27T20:05:54.784155+00:00",
   "trades": [
-    {
-      "event": "CLOSE",
-      "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": 1.3994263807051304,
-      "notional_usdt": 0.0,
-      "price": 1743.2,
-      "rule_market_regime": "bullish_trend",
-      "side": "SELL",
-      "strategy_mode": "trend_pullback",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-20T22:36:10.466804+00:00"
-    },
     {
       "event": "OPEN",
       "exit_reason": null,
@@ -351,9 +353,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.096520809627249,
+      "net_pnl_usdt": -1.1782903200000001,
       "notional_usdt": 0.0,
-      "price": 1732.26,
+      "price": 1731.58,
       "rule_market_regime": "bullish_trend",
       "side": "SELL",
       "strategy_mode": "trend_momentum",
@@ -375,9 +377,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.1844380403458172,
+      "net_pnl_usdt": -1.209878775,
       "notional_usdt": 0.0,
-      "price": 1726.46,
+      "price": 1726.29,
       "rule_market_regime": "bullish_trend",
       "side": "SELL",
       "strategy_mode": "trend_pullback",
@@ -399,9 +401,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.2124071767907352,
+      "net_pnl_usdt": -1.216706325,
       "notional_usdt": 0.0,
-      "price": 1725.7,
+      "price": 1725.63,
       "rule_market_regime": "bullish_trend",
       "side": "SELL",
       "strategy_mode": "trend_pullback",
@@ -411,9 +413,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.102536098319894,
+      "net_pnl_usdt": -1.31080183,
       "notional_usdt": 0.0,
-      "price": 63730.7,
+      "price": 63659.8,
       "rule_market_regime": "bullish_trend",
       "side": "SELL",
       "strategy_mode": "trend_pullback",
@@ -447,9 +449,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.8779369627507276,
+      "net_pnl_usdt": -1.0784445599999999,
       "notional_usdt": 0.0,
-      "price": 1730.36,
+      "price": 1736.18,
       "rule_market_regime": "bullish_trend",
       "side": "SELL",
       "strategy_mode": "trend_momentum",
@@ -459,9 +461,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.7303150484594645,
+      "net_pnl_usdt": -1.1993706,
       "notional_usdt": 0.0,
-      "price": 64054.9,
+      "price": 64222.5,
       "rule_market_regime": "bullish_trend",
       "side": "SELL",
       "strategy_mode": "trend_momentum",
@@ -483,9 +485,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.6139347916453135,
+      "net_pnl_usdt": -1.63605015,
       "notional_usdt": 0.0,
-      "price": 1676.11,
+      "price": 1676.59,
       "rule_market_regime": "bearish_trend",
       "side": "BUY",
       "strategy_mode": "trend_pullback",
@@ -507,9 +509,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.8025140270838709,
+      "net_pnl_usdt": 2.2182705,
       "notional_usdt": 0.0,
-      "price": 1641.01,
+      "price": 1685.71,
       "rule_market_regime": "range",
       "side": "SELL",
       "strategy_mode": "range_reversal",
@@ -531,9 +533,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.9302969328495752,
+      "net_pnl_usdt": -1.62504292,
       "notional_usdt": 0.0,
-      "price": 1634.35,
+      "price": 1631.53,
       "rule_market_regime": "bearish_trend",
       "side": "BUY",
       "strategy_mode": "trend_pullback",
@@ -555,9 +557,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -0.8990648094644357,
+      "net_pnl_usdt": -1.368729635,
       "notional_usdt": 0.0,
-      "price": 1652.26,
+      "price": 1657.68,
       "rule_market_regime": "range",
       "side": "BUY",
       "strategy_mode": "range_reversal",
@@ -579,9 +581,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -3.538173420538074,
+      "net_pnl_usdt": -1.30537862,
       "notional_usdt": 0.0,
-      "price": 1594.56,
+      "price": 1618.46,
       "rule_market_regime": "range",
       "side": "SELL",
       "strategy_mode": "range_reversal",
@@ -603,9 +605,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": 3.4299887806619465,
+      "net_pnl_usdt": 2.243330475,
       "notional_usdt": 0.0,
-      "price": 1531.28,
+      "price": 1543.41,
       "rule_market_regime": "bearish_trend",
       "side": "BUY",
       "strategy_mode": "trend_pullback",
@@ -627,9 +629,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -0.9809094434749045,
+      "net_pnl_usdt": -1.6151918399999998,
       "notional_usdt": 0.0,
-      "price": 1555.67,
+      "price": 1562.55,
       "rule_market_regime": "bearish_trend",
       "side": "BUY",
       "strategy_mode": "trend_pullback",
@@ -651,9 +653,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.7835942950159025,
+      "net_pnl_usdt": -1.89564432,
       "notional_usdt": 0.0,
-      "price": 1564.98,
+      "price": 1565.39,
       "rule_market_regime": "bearish_trend",
       "side": "BUY",
       "strategy_mode": "trend_pullback",
@@ -675,9 +677,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.3180739206627394,
+      "net_pnl_usdt": -1.3419410250000001,
       "notional_usdt": 0.0,
-      "price": 1581.47,
+      "price": 1581.97,
       "rule_market_regime": "range",
       "side": "BUY",
       "strategy_mode": "range_reversal",
@@ -699,9 +701,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": 2.031724025496602,
+      "net_pnl_usdt": 2.0375315,
       "notional_usdt": 0.0,
-      "price": 1541.38,
+      "price": 1540.8,
       "rule_market_regime": "bearish_trend",
       "side": "BUY",
       "strategy_mode": "trend_pullback",
@@ -723,9 +725,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -2.6341994382022493,
+      "net_pnl_usdt": -1.650471975,
       "notional_usdt": 0.0,
-      "price": 1563.39,
+      "price": 1552.91,
       "rule_market_regime": "bearish_trend",
       "side": "BUY",
       "strategy_mode": "trend_pullback",
@@ -747,9 +749,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.2654747577120422,
+      "net_pnl_usdt": -1.3741759500000001,
       "notional_usdt": 0.0,
-      "price": 1590.44,
+      "price": 1591.45,
       "rule_market_regime": "range",
       "side": "BUY",
       "strategy_mode": "range_reversal",
@@ -771,9 +773,9 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": -1.2712648042729273,
+      "net_pnl_usdt": -1.3874259,
       "notional_usdt": 0.0,
-      "price": 1605.2,
+      "price": 1606.43,
       "rule_market_regime": "range",
       "side": "BUY",
       "strategy_mode": "range_reversal",
@@ -795,14 +797,26 @@
     {
       "event": "CLOSE",
       "exit_reason": "exchange_tpsl_closed",
-      "net_pnl_usdt": 2.1559638610617085,
+      "net_pnl_usdt": 2.051556285,
       "notional_usdt": 0.0,
-      "price": 1577.52,
+      "price": 1578.43,
       "rule_market_regime": "range",
       "side": "BUY",
       "strategy_mode": "range_reversal",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-27T19:27:50.814239+00:00"
+    },
+    {
+      "event": "OPEN",
+      "exit_reason": null,
+      "net_pnl_usdt": 0.0,
+      "notional_usdt": 150.0,
+      "price": 1579.2,
+      "rule_market_regime": "range",
+      "side": "LONG",
+      "strategy_mode": "range_reversal",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-27T20:04:52.852508+00:00"
     }
   ]
 }

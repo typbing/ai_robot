@@ -5,39 +5,21 @@
     "realized_pnl_usdt": -19.108719674999996
   },
   "daily": {
-    "consecutive_losses": 1,
+    "consecutive_losses": 0,
     "daily_net_loss_limit_usdt": -2.724056473411521,
-    "daily_net_pnl_usdt": -0.007729675000000019,
+    "daily_net_pnl_usdt": 0.0,
     "daily_profit_stop_enabled": false,
-    "date": "2026-06-29",
-    "losses": 1,
+    "date": "2026-06-30",
+    "losses": 0,
     "stop_reason": null,
     "stop_trading_today": false,
-    "trades_count": 2,
-    "wins": 1
+    "trades_count": 0,
+    "wins": 0
   },
   "errors": [],
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-29T21:12:18.431494+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-29T21:17:22.281095+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-29T21:22:26.898530+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "no_rule_candidate",
@@ -199,6 +181,24 @@
       "reject_reason": "ai_confidence_too_low",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-29T23:40:14.904689+00:00"
+    },
+    {
+      "candidate_action": "LONG",
+      "reject_reason": "ai_confidence_too_low",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-29T23:45:21.187215+00:00"
+    },
+    {
+      "candidate_action": "LONG",
+      "reject_reason": "ai_confidence_too_low",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-29T23:50:31.458347+00:00"
+    },
+    {
+      "candidate_action": "LONG",
+      "reject_reason": "ai_confidence_too_low",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-29T23:55:40.030164+00:00"
     }
   ],
   "service": {
@@ -322,7 +322,7 @@
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-29T23:45:04.749772+00:00",
+  "timestamp": "2026-06-30T00:00:16.284842+00:00",
   "trades": [
     {
       "event": "OPEN",

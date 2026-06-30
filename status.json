@@ -1,12 +1,12 @@
 {
   "account": {
-    "equity_usdt": 180.28653140838574,
+    "equity_usdt": 180.27389226608227,
     "open_positions": [],
     "realized_pnl_usdt": -20.420659344999997
   },
   "daily": {
     "consecutive_losses": 1,
-    "daily_net_loss_limit_usdt": -2.704297971125786,
+    "daily_net_loss_limit_usdt": -2.704108383991234,
     "daily_net_pnl_usdt": -1.3119396700000001,
     "daily_profit_stop_enabled": false,
     "date": "2026-06-30",
@@ -20,24 +20,6 @@
   "mode": "live",
   "notifications": [],
   "rejects": [
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-30T08:27:19.559825+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-30T08:32:26.906398+00:00"
-    },
-    {
-      "candidate_action": null,
-      "reject_reason": "no_rule_candidate",
-      "symbol": "ETH-USDT-SWAP",
-      "timestamp": "2026-06-30T08:37:34.410601+00:00"
-    },
     {
       "candidate_action": null,
       "reject_reason": "no_rule_candidate",
@@ -199,6 +181,24 @@
       "reject_reason": "no_rule_candidate",
       "symbol": "ETH-USDT-SWAP",
       "timestamp": "2026-06-30T10:56:32.823969+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-30T11:01:50.184588+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-30T11:07:00.781741+00:00"
+    },
+    {
+      "candidate_action": "HOLD",
+      "reject_reason": "ai_rejected",
+      "symbol": "ETH-USDT-SWAP",
+      "timestamp": "2026-06-30T11:12:13.838993+00:00"
     }
   ],
   "service": {
@@ -322,7 +322,7 @@
   "symbols": [
     "ETH-USDT-SWAP"
   ],
-  "timestamp": "2026-06-30T11:00:16.269922+00:00",
+  "timestamp": "2026-06-30T11:15:16.264028+00:00",
   "trades": [
     {
       "event": "OPEN",
